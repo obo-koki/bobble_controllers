@@ -252,7 +252,7 @@ double PidControl::getOutput(double desired, double actual){
     // 1. maxIoutput restricts the amount of output contributed by the Iterm.
     // 2. prevent windup by not increasing errorSum if we're already running against our max Ioutput
     // 3. prevent windup by not increasing errorSum if output is output=maxOutput
-    Ioutput=integralFilter.filter(error);
+    Ioutput=integralFilter.filter(errorSum);
     if(maxIOutput!=0){
         Ioutput=clamp(Ioutput,-maxIOutput,maxIOutput);
     }

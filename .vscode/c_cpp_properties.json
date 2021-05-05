@@ -1,0 +1,20 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/koki/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/koki/catkin_ws/src/bobble_controllers/include/**",
+        "/home/koki/catkin_ws/src/diff_drive_controller_effort/include/**",
+        "/home/koki/catkin_ws/src/obstacle_detector/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

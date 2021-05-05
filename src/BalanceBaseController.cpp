@@ -143,6 +143,13 @@ namespace bobble_controllers {
                                           &BalanceBaseController::subscriberCallBack, this);
         ros::Subscriber sub_cmd_vel = n.subscribe("/bobble/bobble_balance_controller/cmd_vel", 1,
                                           &BalanceBaseController::cmdVelCallback, this);
+
+/*
+        //dynamic param
+        callback_ = boost::bind(&BalanceBaseController::param_callback, this, _1, _2);
+        param_server_.setCallback(callback_);
+*/
+
         ros::Rate loop_rate(20);
         while(ros::ok() && run_thread_)
         {
@@ -170,6 +177,16 @@ namespace bobble_controllers {
         received_commands.DesiredVelocity = command.linear.x;
         received_commands.DesiredTurnRate = command.angular.z;
     }
+
+    /*
+    void BalanceBaseController::param_callback(const bobble_controllers::gainConfig& gain, uint32_t level){
+        ROS_INFO("Received dynamic param tilt: %lf, tilt dot: %lf", config.TiltControlKp, config.TiltControlKd);
+        config.TiltControlKp = gain.TiltControlKp;
+        pid_controllers.TiltControlPID.setP(config.TiltControlKp);
+        config.TiltControlKd = gain.TiltControlKd;
+        pid_controllers.TiltControlPID.setD(config.TiltControlKd, 0);
+    }
+    */
 
     void BalanceBaseController::clearCommandState(bobble_controllers::BalanceControllerCommands& cmds)
     {

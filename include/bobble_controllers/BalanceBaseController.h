@@ -18,6 +18,8 @@
 #include <ros/node_handle.h>
 #include <geometry_msgs/Twist.h>
 #include <bobble_controllers/BalanceControllerData.h>
+//#include <bobble_controllers/gainConfig.h>
+//#include <dynamic_reconfigure/server.h>
 
 namespace bobble_controllers {
 
@@ -61,6 +63,10 @@ namespace bobble_controllers {
         void unpackParameter(std::string parameterName, std::string &referenceToParameter, std::string defaultValue);
         void unpackFlag(std::string parameterName, bool &referenceToFlag, bool defaultValue);
         double limit(double cmd, double max);
+
+        //dynamic_reconfigure::Server<bobble_controllers::gainConfig> param_server_;
+        //dynamic_reconfigure::Server<bobble_controllers::gainConfig>::CallbackType callback_;
+        //void param_callback(const bobble_controllers::gainConfig& config, uint32_t level);
 
     private:
         void populateImuData();

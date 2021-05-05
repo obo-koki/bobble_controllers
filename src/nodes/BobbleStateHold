@@ -32,7 +32,7 @@ class BobbleStateHold(object):
     def _resetSimState(self):
         try:
             self.reset_state(gazebo_msgs.msg.ModelState(
-                model_name = "bobblebot",
+                model_name = "balance_robot",
                 pose = geometry_msgs.msg.Pose(position = geometry_msgs.msg.Point(x=0.0, y=0.0, z=0.0),
                                               orientation = geometry_msgs.msg.Quaternion(x=0.0, y=0.0, z=0.0, w=0.0)),
                 twist = geometry_msgs.msg.Twist(linear = geometry_msgs.msg.Point(x=0.0, y=0.0, z=0.0),

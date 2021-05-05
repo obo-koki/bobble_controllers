@@ -1,0 +1,5 @@
+<launch>
+    <arg name="paused" default="false"/>
+    <arg name="gui" default="false"/>
+	<include file="$(find balance_robot_description)/launch/bobble_sim.launch"/>
+</launch>

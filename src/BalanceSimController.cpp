@@ -58,6 +58,7 @@ namespace bobble_controllers {
         }
         sub_imu_sensor_ = node_.subscribe("/imu_bosch/data_raw", 1, &BalanceSimController::imuCB, this);
         state_ = INITIALIZED;
+
         return true;
     }
 

@@ -1,0 +1,14 @@
+<launch>
+	<rosparam file="$(find bobble_controllers)/config/balance_robot_control.yaml"
+		command="load"/>
+
+	<node name="controller_spawner" pkg="controller_manager" type="spawner"
+		respawn="false" output="screen" ns="/balance_robot"
+		args="bobble_balance_controller">
+
+	</node>
+
+	<node pkg="bobble_controllers" type="BobbleStateHold" name="BobbleBotStateHolder" output="screen">
+		<remap from="/bobble/bobble_balance_controller/bb_controller_status" to="/balance_robot/bobble_balance_controller/bb_controller_status"/>
+    </node>
+</launch>
