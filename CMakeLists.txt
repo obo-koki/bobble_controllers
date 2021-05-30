@@ -111,6 +111,7 @@ catkin_install_python(
    src/nodes/JoystickControl
    src/nodes/KeyboardControl
    src/nodes/ApplyImpulse
+   src/nodes/BalanceRobotStateHold
    DESTINATION
    ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
