@@ -54,8 +54,8 @@ namespace bobble_controllers {
         estimateState();
         applyFilters();
         runStateLogic();
-        outputs.RightMotorEffortCmd = -outputs.TiltEffort + outputs.HeadingEffort;
-        outputs.LeftMotorEffortCmd = -outputs.TiltEffort - outputs.HeadingEffort;
+        outputs.RightMotorEffortCmd = -outputs.TiltEffort -outputs.HeadingEffort;//+ outputs.HeadingEffort;
+        outputs.LeftMotorEffortCmd = -outputs.TiltEffort +outputs.HeadingEffort;//- outputs.HeadingEffort;
         applySafety();
         sendMotorCommands();
         write_controller_status_msg();
